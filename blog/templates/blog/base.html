@@ -32,10 +32,22 @@
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if user.is_authenticated %}
+                                <form method="POST" action = "{% url 'post-create'%}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-info" type="submit" style="border-color:white; color:white;">New Post</button>
+                                    </div>
+                                </form>
+                                <form method="POST" action = "{% url 'profile'%}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-info" type="submit" style="border-color:white; color:white; margin-left:3px;">Profile</button>
+                                    </div>
+                                </form>
                                 <form method="POST" action = "{% url 'logout'%}">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <button class="btn btn-outline-info" type="submit">Log out</button>
+                                        <button class="btn btn-outline-info" type="submit" style="border-color:white; color:white; margin-left:3px;">Log out</button>
                                     </div>
                                 </form>
                             {% else %}
